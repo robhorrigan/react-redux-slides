@@ -1,8 +1,8 @@
 {
-  "name": "reveal.js",
-  "version": "3.4.1",
-  "description": "The HTML Presentation Framework",
-  "homepage": "http://lab.hakim.se/reveal-js",
+  "name": "react-redux-slides",
+  "version": "0.0.1",
+  "description": "React Redux Slides",
+  "homepage": "https://github.com/robhorrigan/react-redux-slides",
   "subdomain": "revealjs",
   "main": "js/reveal.js",
   "scripts": {
@@ -10,13 +10,11 @@
     "start": "grunt serve"
   },
   "author": {
-    "name": "Hakim El Hattab",
-    "email": "hakim.elhattab@gmail.com",
-    "web": "http://hakim.se"
+    "name": "Rob Horrigan"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/hakimel/reveal.js.git"
+    "url": "git://github.com/robhorrigan/react-redux-slides.git"
   },
   "engines": {
     "node": ">=4.0.0"
