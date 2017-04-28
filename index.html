@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>React Redux</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
@@ -24,8 +24,130 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>Intro to Redux</h1>
+					<h3>Application State Management</h3>
+					<p>
+						<small>Created by <a href="https://robhorrigan.github.io/">Rob Horrigan</a> / <a href="https://twitter.com/rob_horrigan">@rob_horrigan</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Topics</h2>
+					<ul>
+						<li>State Management 101</li>
+						<li>What is Redux?</li>
+						<li>Redux Terminology
+							<ul>
+								<li>Store</li>
+								<li>Actions</li>
+								<li>Action Creators</li>
+								<li>Reducer</li>
+							</ul>
+						</li>
+						<li>Simple React Redux Demo</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>What is state management?</h2>
+					<p>
+						“The state of a program or application is defined as its condition regarding stored inputs. The term “state” here is used similarly to how it is used in science – whereas the state of an object, for instance a gas, liquid, or solid, shows its current physical makeup, the state of an application shows its current values or contents.” - Technopedia
+					</p>
+				</section>
+
+				<section>
+					<h2>Examples of things you would store in state</h2>
+					<ul>
+						<li>User input (form data, button clicks, etc.)</li>
+						<li>Server responses (API response)</li>
+						<li>Locally generated data (data you've created but not yet persisted)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>What is Redux?</h2>
+				</section>
+
+				<section>
+					<h2>Three Principles of Redux</h2>
+					<ol>
+						<li>The whole state of your app is stored in an object tree inside a single store</li>
+						<li>The only way to change the state tree is to emit an action, an action describing what happened. ("state" is immutable -- it cannot be changed)</li>
+						<li>To specify how actions transform the state tree, you write pure reducers. (“pure” === no side effects)</li>
+					</ol>
+				</section>
+
+				<section>
+					<img width="600" height="400" src="/lib/img/redux-overview.png" >
+				</section>
+
+				<section>
+					<h2>Redux Terminology</h2>
+				</section>
+
+				<section>
+					<h2>Store</h2>
+
+					<ul>
+						<li>Redux has a single store that holds application information</li>
+						<li>Role is to receive actions and use reducers to calculate new state and save it.</li>
+						<li>Notifies all registered listeners when a state change occurs</li>
+					</ul>
+
+
+				</section>
+
+				<section>
+					<h2>Actions</h2>
+
+					<p>Plain Javascript objects that contain information about how the store should modify state</p>
+					<pre><code class="hljs" data-trim contenteditable>
+						{
+							type: 'ADD_TODO',
+							text: 'Get a haircut'
+						}
+					</code></pre>
+
+				</section>
+
+				<section>
+					<h2>Action Creators</h2>
+
+					<p>Functions that create actions</p>
+					<pre><code class="hljs" data-trim contenteditable>
+						function addTodo(text) {
+							return {
+								type: 'ADD_TODO',
+								text
+							}
+						}
+
+					</code></pre>
+
+				</section>
+
+				<section>
+					<h2>Reducer</h2>
+					<p>Specify how state changes in response to actions</p>
+					<pre><code class="hljs" data-trim contenteditable>
+						function todoApp(state = initialState, action) {
+						  switch (action.type) {
+						    case ADD_TODO:
+						      return Object.assign({}, state, {
+						        newestTodo: action.text
+						      })
+						    default:
+						      return state
+						  }
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Demo</h2>
+				</section>
+
 			</div>
 		</div>
 
