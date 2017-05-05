@@ -45,7 +45,7 @@
 								<li>Reducer</li>
 							</ul>
 						</li>
-						<li>Simple React Redux Demo</li>
+						<li>Simple React-Redux Demo</li>
 					</ul>
 				</section>
 
@@ -61,25 +61,26 @@
 					<ul>
 						<li>User input (form data, button clicks, etc.)</li>
 						<li>Server responses (API response)</li>
-						<li>Locally generated data (data you've created but not yet persisted)</li>
+						<li>Locally generated data (data you've created but not persisted)</li>
 					</ul>
 				</section>
 
 				<section>
 					<h2>What is Redux?</h2>
+					<p>"A predictable state container for JavaScript applications"</p>
 				</section>
 
 				<section>
 					<h2>Three Principles of Redux</h2>
 					<ol>
 						<li>The whole state of your app is stored in an object tree inside a single store</li>
-						<li>The only way to change the state tree is to emit an action, an action describing what happened. ("state" is immutable -- it cannot be changed)</li>
+						<li>The only way to change the state tree is to emit an action, an action describing what happened. (state is immutable -- it cannot be modified directly)</li>
 						<li>To specify how actions transform the state tree, you write pure reducers. (“pure” === no side effects)</li>
 					</ol>
 				</section>
 
 				<section>
-					<img width="600" height="400" src="/lib/img/redux-overview.png" >
+					<img width="800" height="600" src="/lib/img/redux-overview.png" >
 				</section>
 
 				<section>
@@ -91,7 +92,7 @@
 
 					<ul>
 						<li>Redux has a single store that holds application information</li>
-						<li>Role is to receive actions and use reducers to calculate new state and save it.</li>
+						<li>Role is to receive actions and use reducers to calculate new state and save it</li>
 						<li>Notifies all registered listeners when a state change occurs</li>
 					</ul>
 
