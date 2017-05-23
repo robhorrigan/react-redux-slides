@@ -25,8 +25,8 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1>Intro to Redux</h1>
-					<h3>Application State Management</h3>
+					<h1>Intro to React/Redux</h1>
+					<h3></h3>
 					<p>
 						<small>Created by <a href="https://robhorrigan.github.io/">Rob Horrigan</a> / <a href="https://twitter.com/rob_horrigan">@rob_horrigan</a></small>
 					</p>
@@ -34,19 +34,201 @@
 
 				<section>
 					<h2>Topics</h2>
+					<section>
 					<ul>
-						<li>State Management 101</li>
-						<li>What is Redux?</li>
-						<li>Redux Terminology
+						<li>What is React?</li>
 							<ul>
-								<li>Store</li>
-								<li>Actions</li>
-								<li>Action Creators</li>
-								<li>Reducer</li>
+								<li>Libary, not a framework</li>
+								<li>Component based</li>
+								<li>Declarative</li>
 							</ul>
-						</li>
-						<li>Simple React-Redux Demo</li>
+						<li>React Ecosystem</li>	
 					</ul>
+					</section>
+					<section>
+						<ul>
+							<li>State Management 101</li>
+							<li>What is Redux?</li>
+							<li>Redux Terminology
+								<ul>
+									<li>Store</li>
+									<li>Actions</li>
+									<li>Action Creators</li>
+									<li>Reducer</li>
+								</ul>
+							</li>
+							<li>Simple React-Redux Demo</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h2>What is React?</h2>
+					<p>"React is a declarative, efficient, and flexible JavaScript library for building user interfaces."</p>
+					<p>The "V" in MVC</p>
+					<h3>Component Based</h3>
+					<h3>Declarative</h3>
+				</section>
+
+				<section>
+					<h2>React Components</h2>
+					<img width="500" height="300" src="/lib/img/uimockscript.png" >
+					<p>Build encapsulated components that manage their own state, then compose them to make complex UIs</p>
+				</section>
+
+				<section>
+					<h2>Example Component</h2>
+					<pre>
+						<code class="hljs" data-trim contenteditable>
+						class HelloWorld extends React.Component {
+						  render() {
+						    return (
+							  <div>
+							    Hello World!
+							  </div>
+						    );
+						  }
+						}
+						ReactDom.render(HelloWorld, document.getElementById("app"));
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>Declarative</h2>
+
+	 				<p>Imperative: “How to do something”</p>
+					<p>Declarative: “What to do”</p>
+				
+					<h4>Benefits</h4>
+					<ul>
+						<li>Reduce side effects</li>
+						<li>Minimize mutability</li>
+						<li>More readable code</li>
+						<li>Less Bugs</li>
+						<li>Context-independent</li>
+					</ul>
+				</section>
+
+				<section>
+					<table>
+						<tr>
+							<h2>Imperative</h2>
+							<pre>
+								<code class="hljs" data-trim contenteditable>
+									function double (arr) {
+									let results = []
+
+									for (let i = 0; i < arr.length; i++){
+										results.push(arr[i] * 2)
+									}
+
+									return results
+									}
+								</code>
+							</pre>
+						</tr>
+						<tr>
+							<h2>Declarative</h2>
+							<pre>
+								<code class="hljs" data-trim contenteditable>
+									function double (arr) {
+										return arr.map((item) => item * 2)
+									}
+								</code>
+							</pre>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h2>React Ecosystem</h2>					
+					<p><strong>Entirely possible to build a React app with no other dependencies, but most apps use a variety of additional libraries for specific capabilities.</strong></p>
+					<ul>
+						<li>Good news: can pick exactly the libraries you need for your use cases.</li>
+						<li>Bad news: need to pick exactly the libraries you need for your use cases.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Common libraries</h2>
+					<ul>
+						<li>AJAX requests: Axios, SuperAgent, Fetch</li>
+						<li>Routing: React-Router</li>
+						<li>State management: Redux, MobX</li>
+						<li>Data/utilities: Immutable.js, Lodash</li>
+					</ul>
+
+					<h2>Build tools</h2>
+					<uL>
+						<li>Babel: compiles ES6/JSX to widely-compatible ES5</li>
+						<li>Webpack: reads multiple JS module formats, loads non-JS formats such as CSS and images, runs Babel, and generates optimized output bundles for deployment</li>
+					</uL>	
+				</section>
+
+				<section>
+					<h2>JSX</h2>
+				</section>
+
+				<section>
+					<h2>Props and State</h2>
+				</section>
+
+				<section>
+					<h2>Props</h2>
+					<pre>
+						<code class="hljs" data-trim contenteditable>
+							class HelloWorld extends React.Component {
+								static propTypes = {
+									name : React.PropTypes.string.isRequired
+								}
+
+								render() {
+									return (
+										<div>Hello {this.props.name}!</div>
+									);
+								}
+							}
+
+							render(
+								<HelloWorld name="Mark"/>,
+								mountNode
+							);
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>State</h2>
+					<pre>
+						<code class="hljs" data-trim contenteditable>
+							class Counter extends React.Component {
+								state = {counter : 0}
+
+								onClick = () => {
+									this.setState({counter : this.state.counter + 1});
+								}
+
+								render() {
+									const {counter} = this.state;
+
+									return (
+										<div>
+											Button was clicked:
+											<div>{counter} times</div>
+
+											<button onClick={this.onClick}>Click Me</button>
+										</div>
+									);
+								}
+							}
+							render(<Counter />, mountNode);
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>But how do I manage state once the application gets more complex?</h2>
 				</section>
 
 				<section>
