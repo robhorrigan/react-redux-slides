@@ -37,12 +37,15 @@
 					<section>
 					<ul>
 						<li>What is React?</li>
-							<ul>
-								<li>Libary, not a framework</li>
-								<li>Component based</li>
-								<li>Declarative</li>
-							</ul>
-						<li>React Ecosystem</li>	
+						<li>React Ecosystem</li>
+						<li>React Terminology</li>
+						<ul>
+							<li>Virutal DOM</li>
+							<li>JSX</li>	
+							<li>Props</li>
+							<li>State</li>	
+							<li>Component Lifecycle Events</li>
+						</ul>
 					</ul>
 					</section>
 					<section>
@@ -65,166 +68,118 @@
 				<section>
 					<h2>What is React?</h2>
 					<p>"React is a declarative, efficient, and flexible JavaScript library for building user interfaces."</p>
-					<p>The "V" in MVC</p>
-					<h3>Component Based</h3>
-					<h3>Declarative</h3>
-				</section>
-
-				<section>
-					<h2>React Components</h2>
-					<img width="500" height="300" src="/lib/img/uimockscript.png" >
-					<p>Build encapsulated components that manage their own state, then compose them to make complex UIs</p>
-				</section>
-
-				<section>
-					<h2>Example Component</h2>
-					<pre>
-						<code class="hljs" data-trim contenteditable>
-						class HelloWorld extends React.Component {
-						  render() {
-						    return (
-							  <div>
-							    Hello World!
-							  </div>
-						    );
-						  }
-						}
-						ReactDom.render(HelloWorld, document.getElementById("app"));
-						</code>
-					</pre>
-				</section>
-
-				<section>
-					<h2>Declarative</h2>
-
-	 				<p>Imperative: “How to do something”</p>
-					<p>Declarative: “What to do”</p>
-				
-					<h4>Benefits</h4>
 					<ul>
-						<li>Reduce side effects</li>
-						<li>Minimize mutability</li>
-						<li>More readable code</li>
-						<li>Less Bugs</li>
-						<li>Context-independent</li>
+						<li>Component Based</li>
+						<li>Declarative</li>
 					</ul>
 				</section>
 
 				<section>
-					<table>
-						<tr>
-							<h2>Imperative</h2>
-							<pre>
-								<code class="hljs" data-trim contenteditable>
-									function double (arr) {
-									let results = []
+					<section>
+						<h2>React Components</h2>
+						<p>Build encapsulated components that manage their own internal state, then compose them to make complex UIs</p>
+					</section>
+					
+					<section>
+						<img width="800" height="540" src="/lib/img/uimockscript.png" >
+					</section>
 
-									for (let i = 0; i < arr.length; i++){
-										results.push(arr[i] * 2)
-									}
-
-									return results
-									}
-								</code>
-							</pre>
-						</tr>
-						<tr>
-							<h2>Declarative</h2>
-							<pre>
-								<code class="hljs" data-trim contenteditable>
-									function double (arr) {
-										return arr.map((item) => item * 2)
-									}
-								</code>
-							</pre>
-						</tr>
-					</table>
+					<section>
+						<h2>Example Component</h2>
+						<img width="900" height="540" src="/lib/img/hello-component.png" >
+					</section>
 				</section>
 
 				<section>
-					<h2>React Ecosystem</h2>					
-					<p><strong>Entirely possible to build a React app with no other dependencies, but most apps use a variety of additional libraries for specific capabilities.</strong></p>
-					<ul>
-						<li>Good news: can pick exactly the libraries you need for your use cases.</li>
-						<li>Bad news: need to pick exactly the libraries you need for your use cases.</li>
-					</ul>
+					<section>
+						<h2>Declarative</h2>
+
+						<p>Imperative: “How to do something”</p>
+						<p>Declarative: “What to do”</p>
+					</section>
+
+					<section>
+						<h2>Imperative</h2>
+						<img width="900" height="540" src="/lib/img/double-function.png" >
+					</section>
+
+					<section>
+						<h2>Declarative</h2>
+						<img width="900" height="400" src="/lib/img/double.png" >
+					</section>
+
+					<section>
+						<h4>Benefits</h4>
+						<ul>
+							<li>Reduce side effects</li>
+							<li>More readable code</li>
+							<li>Less Bugs</li>
+							<li>Context-independent</li>
+						</ul>
+					</section>
 				</section>
 
 				<section>
-					<h2>Common libraries</h2>
-					<ul>
-						<li>AJAX requests: Axios, SuperAgent, Fetch</li>
-						<li>Routing: React-Router</li>
-						<li>State management: Redux, MobX</li>
-						<li>Data/utilities: Immutable.js, Lodash</li>
-					</ul>
+					<section>
+						<h2>React Ecosystem</h2>					
+						<p><strong>It's possible to build a React app without any other dependencies, but most apps use a variety of additional libraries and build tools for specific capabilities.</strong></p>
+					</section>
+					
+					<section>
+						<h2>Common libraries</h2>
+						<ul>
+							<li>AJAX requests: Axios, SuperAgent, Fetch</li>
+							<li>Routing: React-Router</li>
+							<li>State management: Redux, MobX</li>
+							<li>Data/utilities: Immutable.js, Lodash</li>
+						</ul>
 
-					<h2>Build tools</h2>
-					<uL>
-						<li>Babel: compiles ES6/JSX to widely-compatible ES5</li>
-						<li>Webpack: reads multiple JS module formats, loads non-JS formats such as CSS and images, runs Babel, and generates optimized output bundles for deployment</li>
-					</uL>	
+						<h2>Build tools</h2>
+						<uL>
+							<li>Babel: compiles ES6/JSX to widely-compatible ES5</li>
+							<li>Webpack: reads multiple JS module formats, loads non-JS formats such as CSS and images, runs Babel, and generates optimized output bundles.</li>
+						</uL>
+					</section>
+				</section>
+
+				<section>
+					<h2>Virtual DOM</h2>
+					<p>An in-memory JavaScript tree of React elements/components that is used for efficient re-rendering (i.e., diffing via JavaScript) of the browser DOM</p>
 				</section>
 
 				<section>
 					<h2>JSX</h2>
+					<p>JSX is an optional XML-like syntax extension to ECMAScript that can be used to define an HTML-like tree structure in a JavaScript file</p>
 				</section>
 
 				<section>
-					<h2>Props and State</h2>
+					<section>
+						<h2>Props</h2>
+						<p>Props provide configuration values for the component.</p>
+					</section>
+
+					<section>
+						<h2>Props</h2>
+						<img width="900" height="400" src="/lib/img/props-example.png" >
+					</section>
 				</section>
 
 				<section>
-					<h2>Props</h2>
-					<pre>
-						<code class="hljs" data-trim contenteditable>
-							class HelloWorld extends React.Component {
-								static propTypes = {
-									name : React.PropTypes.string.isRequired
-								}
+					<section>
+						<h2>State</h2>
+						<p>State is used to store information/data about the component that can change over time.</p>
+					</section>
 
-								render() {
-									return (
-										<div>Hello {this.props.name}!</div>
-									);
-								}
-							}
-
-							render(
-								<HelloWorld name="Mark"/>,
-								mountNode
-							);
-						</code>
-					</pre>
+					<section>
+						<h2>State</h2>
+						<img width="900" height="510" src="/lib/img/state-example.png" >
+					</section>
 				</section>
 
 				<section>
-					<h2>State</h2>
-					<pre>
-						<code class="hljs" data-trim contenteditable>
-							class Counter extends React.Component {
-								state = {counter : 0}
-
-								onClick = () => {
-									this.setState({counter : this.state.counter + 1});
-								}
-
-								render() {
-									const {counter} = this.state;
-
-									return (
-										<div>
-											Button was clicked:
-											<div>{counter} times</div>
-
-											<button onClick={this.onClick}>Click Me</button>
-										</div>
-									);
-								}
-							}
-							render(<Counter />, mountNode);
-						</code>
-					</pre>
+					<h4>Component Lifecycle Events</h4>
+					<img width="900" height="400" src="/lib/img/lifecycle.png" >
+					<code>https://github.com/pbeshai</code>
 				</section>
 
 				<section>
@@ -285,46 +240,20 @@
 					<h2>Actions</h2>
 
 					<p>Plain Javascript objects that contain information about how the store should modify state</p>
-					<pre><code class="hljs" data-trim contenteditable>
-						{
-							type: 'ADD_TODO',
-							text: 'Get a haircut'
-						}
-					</code></pre>
-
+					<img width="900" height="300" src="/lib/img/action.png" >
 				</section>
 
 				<section>
 					<h2>Action Creators</h2>
 
 					<p>Functions that create actions</p>
-					<pre><code class="hljs" data-trim contenteditable>
-						function addTodo(text) {
-							return {
-								type: 'ADD_TODO',
-								text
-							}
-						}
-
-					</code></pre>
-
+					<img width="900" height="400" src="/lib/img/action-creator.png" >
 				</section>
 
 				<section>
 					<h2>Reducer</h2>
 					<p>Specify how state changes in response to actions</p>
-					<pre><code class="hljs" data-trim contenteditable>
-						function todoApp(state = initialState, action) {
-						  switch (action.type) {
-						    case ADD_TODO:
-						      return Object.assign({}, state, {
-						        newestTodo: action.text
-						      })
-						    default:
-						      return state
-						  }
-						}
-					</code></pre>
+					<img width="900" height="480" src="/lib/img/reducer.png" >
 				</section>
 
 				<section>
